@@ -37,11 +37,44 @@ The first thing you will need is a `{exp:channel:form}` tag pair, along with a f
 
 ### Including Assets
 
-If you plan on using the formatting buttons or the [Grid](fieldtypes/grid.md), [Relationships](fieldtypes/relationships.md), [Rich Text Editor](add-ons/rte.md), Date, or File fieldtypes, include a link to the Channel Form stylesheet in your template:
+If you plan on using the [Grid](fieldtypes/grid.md), [Relationships](fieldtypes/relationships.md), Date, or File fieldtypes, include a link to the Channel Form stylesheet in your template:
 
     <link href="{path='css/_ee_channel_form_css'}" type="text/css" rel="stylesheet" media="screen">
 
 The Channel Form tag will automatically load jQuery for you. If you prefer to include your own version of jQuery, use the [include_jquery=](#include_jquery) parameter.
+
+### Implementing RTE Fields
+
+RTE fields are outputted as textareas with the class `.has-rte`. ExpressionEngine does not automatically implement an RTE library, allowing you to choose a library you prefer. We recommend using [Quill JS](https://quilljs.com/) for maximum compatibility with ExpressionEngine's control panel RTE field.
+
+Here's how to implement RTE fields with Quill JS:
+
+```js
+var rteFields = document.querySelectorAll('textarea.has-rte');
+
+rteFields.forEach(function (field) {
+    var editorContainer = document.createElement('div');
+
+    // Insert a container next to the textarea for the quill editor
+    field.parentNode.insertBefore(editorContainer, field.nextSibling);
+
+    // Initialize quill in the new container
+    var editor = new Quill(editorContainer, {
+        theme: 'snow'
+    });
+
+    // Set the initial editor's value from the textarea
+    editor.root.innerHTML = field.value;
+
+    // When the editor changes, update the textarea's value
+    editor.on('text-change', function () {
+        field.innerHTML = editor.root.innerHTML
+    });
+
+    // Hide the textarea
+    field.style.display = 'none';
+});
+```
 
 ### Allowing Guests to Post Entries
 
@@ -181,22 +214,6 @@ Specify a path to redirect the user to after an entry submission, based on the u
 
 Add additional validation rules to your fields. Separate multiple rules with the pipe | character. You may use any of these rules: (required, matches, min_length, max_length, exact_length, alpha, alpha_numeric, alpha_dash, numeric, integer, is_natural, is_natural_no_zero, valid_ee_date, valid_email, valid_emails, valid_ip, valid_base64).
 
-### `rte_selector=`
-
-    rte_selector=".my-custom-class"
-
-This parameter will automatically load ExpressionEngine's [Rich Text Editor](add-ons/rte.md) and apply it to the element(s) matching the jQuery selector you specify. Any valid jQuery selector is acceptable.
-
-The RTE will use the Toolset preference of the currently logged-in user as chosen in `my_account_rte_prefs`. If the user has not chosen a Toolset or is not logged in, the site's `rte_mcp_default_toolset` will be used.
-
-You can optionally force a particular toolset ID to use (see below).
-
-### `rte_toolset_id=`
-
-    rte_toolset_id="1"
-
-The ID of the Rich Text Editor toolset to use. Toolset IDs are listed on the [Rich Text Editor](add-ons/rte.md#control-panel) page.
-
 ### `secure_action=`
 
     secure_action="yes"
@@ -311,7 +328,7 @@ If using a field with options, such as Checkboxes or Dropdown, you can display t
       {/if}
 
       {if rte}
-        <textarea id="{field_name}" name="{field_name}" dir="{text_direction}" rows="{rows}" class="WysiHat-field">{field_data}</textarea>
+        <textarea id="{field_name}" name="{field_name}" dir="{text_direction}" rows="{rows}" class="rte">{field_data}</textarea>
       {/if}
 
       {if text}

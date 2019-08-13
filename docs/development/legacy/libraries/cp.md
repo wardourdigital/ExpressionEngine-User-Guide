@@ -80,7 +80,7 @@ This method allows you to include scripts found in the main JavaScript directory
 
 NOTE: **Note:** This method will only load files from the `themes/javascript` directory. To load a third-party add-on package's JavaScript files, use `Cp::load_package_js`.
 
-Several custom jQuery plugins are included with ExpressionEngine and available for third-party developers to use. Plugins available include [ee_interact.event](development/control-panel-js/events.md#form-interaction-event), [tablesorter](http://tablesorter.com/docs/), [ee_table](development/control-panel-js/table.md), and [wysihat](development/control-panel-js/wysihat-api.md).
+Several custom jQuery plugins are included with ExpressionEngine and available for third-party developers to use. Plugins available include [ee_interact.event](development/control-panel-js/events.md#form-interaction-event), [tablesorter](http://tablesorter.com/docs/), and [ee_table](development/control-panel-js/table.md).
 
 An example call to load one of the jQuery plugins:
 

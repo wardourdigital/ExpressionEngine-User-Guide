@@ -210,8 +210,6 @@
       href: add-ons/rss.md
     - name: RSS Parser
       href: add-ons/rss-parser.md
-    - name: Rich Text Editor
-      href: add-ons/rte.md
     - name: Search
       items:
         - name: Overview
@@ -603,20 +601,12 @@
       href: development/tree-datastructure.md
     - name: Shared Form View
       href: development/shared-form-view.md
-    - name: RTE Tools API
-      href: development/rte-tools.md
     - name: Control Panel Javascript
       items:
         - name: Custom jQuery Events
           href: development/control-panel-js/events.md
         - name: Table Plugin
           href: development/control-panel-js/table.md
-        - name: Rich Text Editor
-          href: development/control-panel-js/rich-text-editor.md
-        - name: Ranges and Selections
-          href: development/control-panel-js/rangesandselections.md
-        - name: WysiHat API
-          href: development/control-panel-js/wysihat-api.md
     - name: Constants Reference
       href: development/constants.md
     - name: JSON Version Feed

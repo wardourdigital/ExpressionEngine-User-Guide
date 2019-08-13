@@ -22,7 +22,6 @@ The ExpressionEngine core defines a variety of constants to ensure consistency i
 - `APPPATH` and `BASEPATH` - Path to the `system/ee/legacy` directory
 - `PATH_ADDONS` - Path to the first-party addons directory
 - `PATH_THEMES` - Path to the themes directory
-- `PATH_RTE` - Path to the first party RTE tools directory
 - `PATH_MBR_THEMES` - Path to the member themes directory
 - `PATH_CP_GBL_IMG` - Path to the global image directory
 - `PATH_JAVASCRIPT` - Path to the javascript directory
