@@ -45,12 +45,12 @@ The Channel Form tag will automatically load jQuery for you. If you prefer to in
 
 ### Implementing RTE Fields
 
-RTE fields are outputted as textareas with the class `.has-rte`. ExpressionEngine does not automatically implement an RTE library, allowing you to choose a library you prefer. We recommend using [Quill JS](https://quilljs.com/) for maximum compatibility with ExpressionEngine's control panel RTE field.
+RTE fields are outputted as textareas with the class `.ee-has-rte`. ExpressionEngine does not automatically implement an RTE library, allowing you to choose a library you prefer. We recommend using [Quill JS](https://quilljs.com/) for maximum compatibility with ExpressionEngine's control panel RTE field.
 
 Here's how to implement RTE fields with Quill JS:
 
 ```js
-var rteFields = document.querySelectorAll('textarea.has-rte');
+var rteFields = document.querySelectorAll('textarea.ee-has-rte');
 
 rteFields.forEach(function (field) {
     var editorContainer = document.createElement('div');
