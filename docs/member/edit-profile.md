@@ -45,10 +45,12 @@ Member email address.
 
 ### Password
 
-Member password. This is a **required** field.
+Member password. Used in conjunction with the password confirmation field and current password field to change the account password.
 
             <label>Your New Password</label><br />
             <input type="password" name="password" value="" maxlength="50" size="40" />
+
+NOTE: **Note:** Logged out users wanting to reset their password should use the [Forgotten Password Tags](member/forgot-password.md).
 
 ### Password Confirmation
 
@@ -66,14 +68,14 @@ If the password or the email address is submitted, the current password field is
 
 ### Screen name
 
-Member Screen name. This is a **required** field:
+Member Screen name.
 
     <label for="screen_name">Screen Name</label>
     <input type="text" name="screen_name" value="{screen_name}" maxlength="120" size="40" />
 
 ### Username
 
-Member username. This is a **required** field and must be unique across the site:
+Member username.
 
     <label for="username">Username</label>
     <input type="text" name="username" value="{username}" maxlength="120" size="40" />
