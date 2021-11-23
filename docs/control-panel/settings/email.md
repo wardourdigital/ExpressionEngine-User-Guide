@@ -56,3 +56,7 @@ When you send email via the Communicate section of your Control Panel, you are a
 ### Enable word-wrapping?
 
 Determines whether to have the email sending routine "word wrap" email messages. This setting can be overridden when sending email using the Communicate page. It's generally recommended to enable this setting, as this is required to comply with the email specification.
+
+### SMTP and HTML Email Rendering issues
+
+You may find that when sending emails using SMTP credentials, HTML emails received may suffer from encoding issues resulting in broken formatting. One solution is to add the `$config['email_crfl'] = "\r\n";` to your config file
